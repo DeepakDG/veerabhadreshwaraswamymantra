@@ -1,5 +1,7 @@
 package com.arka.veerabhadraswamymantra;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,5 +35,14 @@ public class FirstFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Toast.makeText(getActivity().getBaseContext(), code_name[position], Toast.LENGTH_SHORT).show();
+        moveToNewActivity();
+    }
+
+    private void moveToNewActivity () {
+
+        Intent i = new Intent(getActivity(), PagerActivity.class);
+        startActivity(i);
+        ((Activity) getActivity()).overridePendingTransition(0, 0);
+
     }
 }

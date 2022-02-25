@@ -11,6 +11,8 @@
         android:theme="@style/Theme.Veerabhadraswamymantra">
         <activity android:name=".MainActivity"
             android:theme="@style/Theme.Veerabhadraswamymantra.NoActionBar"></activity>
+        <activity android:name=".PagerActivity"
+            android:theme="@style/Theme.Veerabhadraswamymantra.NoActionBar"></activity>
         <activity
             android:name=".SplashScreenNew"
             android:exported="true"
