@@ -8,15 +8,15 @@
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="match_parent"
         android:layout_marginBottom="40dp">
 
     </ListView>
 
-    <Button
-        android:id="@+id/button_first"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        />
+<!--    <Button-->
+<!--        android:id="@+id/button_first"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/next"-->
+<!--        />-->
 </LinearLayout>
