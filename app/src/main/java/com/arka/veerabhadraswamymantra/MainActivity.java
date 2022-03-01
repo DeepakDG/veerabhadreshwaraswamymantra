@@ -1,49 +1,71 @@
 package com.arka.veerabhadraswamymantra;
 
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.arka.veerabhadraswamymantra.databinding.ActivityMainBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    ListView simpleList;
+    ArrayList<Item> animalList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_listviewexampleactivity);
 
-        setSupportActionBar(binding.toolbar);
-
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        setSupportActionBar(findViewById(R.id.my_toolbar));
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
+
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+//        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+//        binding.fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
+        simpleList = (ListView) findViewById(R.id.listview);
+        animalList.add(new Item("Lion",R.drawable.ic_travel));
+        animalList.add(new Item("Tiger",R.drawable.ic_travel));
+        animalList.add(new Item("Monkey",R.drawable.ic_travel));
+        animalList.add(new Item("Elephant",R.drawable.ic_travel));
+        animalList.add(new Item("Dog",R.drawable.ic_travel));
+        animalList.add(new Item("Cat",R.drawable.ic_travel));
+
+        PrefManager myAdapter=new PrefManager(this,R.layout.custom_list_view,animalList);
+        simpleList.setAdapter(myAdapter);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

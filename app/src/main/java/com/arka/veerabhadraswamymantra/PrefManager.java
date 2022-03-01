@@ -1,37 +1,41 @@
-//package com.arka.veerabhadraswamymantra;
-//
-//import android.content.Context;
-//import android.content.SharedPreferences;
-//
-///**
-// * Created by Lincoln on 05/05/16.
-// */
-//public class PrefManager {
-//    SharedPreferences pref;
-//    SharedPreferences.Editor editor;
-//    Context _context;
-//
-//    // shared pref mode
-//    int PRIVATE_MODE = 0;
-//
-//    // Shared preferences file name
-//    private static final String PREF_NAME = "androidhive-welcome";
-//
-//    private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
-//
-//    public PrefManager(Context context) {
-//        this._context = context;
-//        pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
-//        editor = pref.edit();
-//    }
-//
-//    public void setFirstTimeLaunch(boolean isFirstTime) {
-//        editor.putBoolean(IS_FIRST_TIME_LAUNCH, isFirstTime);
-//        editor.commit();
-//    }
-//
-//    public boolean isFirstTimeLaunch() {
-//        return pref.getBoolean(IS_FIRST_TIME_LAUNCH, true);
-//    }
-//
-//}
+package com.arka.veerabhadraswamymantra;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+public class PrefManager extends ArrayAdapter<Item> {
+
+    ArrayList<Item> animalList = new ArrayList<>();
+
+    public PrefManager(Context context, int textViewResourceId, ArrayList<Item> objects) {
+        super(context, textViewResourceId, objects);
+        animalList = objects;
+    }
+
+    @Override
+    public int getCount() {
+        return super.getCount();
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        View v = convertView;
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        v = inflater.inflate(R.layout.custom_list_view, null);
+        TextView textView = (TextView) v.findViewById(R.id.textView);
+        ImageView imageView = (ImageView) v.findViewById(R.id.imageView);
+        textView.setText(animalList.get(position).getAnimalName());
+        imageView.setImageResource(animalList.get(position).getAnimalImage());
+        return v;
+
+    }
+
+}
