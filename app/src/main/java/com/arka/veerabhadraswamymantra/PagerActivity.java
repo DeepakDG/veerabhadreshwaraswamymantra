@@ -79,6 +79,8 @@ public class PagerActivity extends Activity
                 pager.setCurrentItem (pager.getCurrentItem()-1, true);
             }
         });
+
+        pager.setCurrentItem (0, true);
     }
 
     //-----------------------------------------------------------------------------
