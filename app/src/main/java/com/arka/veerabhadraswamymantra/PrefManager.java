@@ -31,6 +31,7 @@ public class PrefManager extends ArrayAdapter<Item> {
         v = inflater.inflate(R.layout.custom_list_view, null);
         TextView textView = (TextView) v.findViewById(R.id.textView);
         textView.setText(animalList.get(position).getAnimalName());
+
         return v;
 
     }

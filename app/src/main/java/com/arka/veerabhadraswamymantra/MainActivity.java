@@ -1,9 +1,11 @@
 package com.arka.veerabhadraswamymantra;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,6 +69,19 @@ public class MainActivity extends AppCompatActivity {
 
         PrefManager myAdapter=new PrefManager(this,R.layout.custom_list_view, listArray);
         simpleList.setAdapter(myAdapter);
+
+        simpleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                moveToNewActivity();
+            }
+        });
+
+    }
+
+    private void moveToNewActivity () {
+        Intent i = new Intent(getApplicationContext(), PagerActivity.class);
+        startActivity(i);
     }
 
 
