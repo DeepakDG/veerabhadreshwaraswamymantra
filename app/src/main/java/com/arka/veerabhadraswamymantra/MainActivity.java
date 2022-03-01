@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     ListView simpleList;
-    ArrayList<Item> animalList=new ArrayList<>();
+    ArrayList<Item> listArray =new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,27 +42,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-//        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-//        binding.fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
         simpleList = (ListView) findViewById(R.id.listview);
-        animalList.add(new Item("Lion",R.drawable.ic_travel));
-        animalList.add(new Item("Tiger",R.drawable.ic_travel));
-        animalList.add(new Item("Monkey",R.drawable.ic_travel));
-        animalList.add(new Item("Elephant",R.drawable.ic_travel));
-        animalList.add(new Item("Dog",R.drawable.ic_travel));
-        animalList.add(new Item("Cat",R.drawable.ic_travel));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸುಪ್ರಭಾತ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಕವಚಂ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ದಂಡಕಂ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ತಾರಾವಳಿ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರಾಷ್ಟಕಂ"));
+        listArray.add(new Item("ಶ್ರೀ ಭದ್ರ ಕವಚಂ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮಸ್ತೋತ್ರ"));
+        listArray.add(new Item("ಶಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮವಳಿ"));
+        listArray.add(new Item("ಶಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ ಸ್ತೋತ್ರo"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ವಡಪುಗಳು"));
+        listArray.add(new Item("ಗುಗ್ಗುಳದ ಬಗ್ಗೆ ಮಾಹಿತಿ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಂಕ್ಷಿಪ್ತ ಪರಿಚಯ್ರ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಆಚರಣೆಗಳು"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಪ್ರಾರ್ಥನೆ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ ಶ್ಲೋಕ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಶತಕ"));
+        listArray.add(new Item("ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ"));
+        listArray.add(new Item("ದ್ವಾತ್ರಿಂಶದ್ಭುಜ ಶ್ರೀ ವೀರಭದ್ರ ಧ್ಯಾನಂ"));
+        listArray.add(new Item("ಶ್ರೀ ಶರಭ ಹೃದಯ ಸ್ತೋತ್ರ"));
+        listArray.add(new Item("ಶ್ರೀ ಶರಭೋಪನಿಷತ್ತು"));
 
-        PrefManager myAdapter=new PrefManager(this,R.layout.custom_list_view,animalList);
+        PrefManager myAdapter=new PrefManager(this,R.layout.custom_list_view, listArray);
         simpleList.setAdapter(myAdapter);
     }
 
